@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&display=swap');
+
+/* ==font=== */
+
+/* .crete-round-regular {
+  font-family: "Crete Round", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.crete-round-regular-italic {
+  font-family: "Crete Round", serif;
+  font-weight: 400;
+  font-style: italic;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+body, html {
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.titulo{
+  text-align: center;
+  color: #000;
+  padding-top: 3rem;
+}
+
+.titulo h2{
+  font-family: "Crete Round", serif;
+
+}
+
+
+.buscador{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.buscador input{
+  width: 30rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid #0f0e0e;
+  padding-left: 1.5rem;
+}
+
+button{
+  background-color: #000;
+  color: #fff;
+  width: 8rem;
+  border-radius: 0.5rem;
+  height: 2.1rem;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  border: none;
+}
+
+.bandera{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 2rem; */
+ 
+}
+
+.bandera img {
+  max-width: 100px;
+  height: auto;
+}
+
+
+button:hover{
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+}
+button:active{
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #000;
+}
+
+.respuesta{ 
+  font-family: "Crete Round", serif;
+  font-weight: 500;
+  display: flex;
+  gap: 6rem; 
+  justify-content: center; /* opcional: centra horizontalmente */
+  margin-top: 2rem;
+  padding: 0 2rem 2rem 2rem;
+}
+
+
+@media (max-width: 768px) {
+  .respuesta {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .informacion,
+  .clima {
+    width: 100%;
+    text-align: center;
+  }
+
+  .buscador input {
+    width: 90%;
+  }
+}

@@ -16,7 +16,6 @@ document.querySelector('button').addEventListener('click', async () => {
         <p><strong>Moneda:</strong> ${Object.values(info.currencies)[0].name}</p>
         <p><strong>Código del país:</strong> ${info.cca2}</p>
         <p><strong>Continente:</strong> ${info.region}</p>
-
       `;
   
       document.querySelector('.bandera img').src = info.flags.svg;
@@ -27,7 +26,8 @@ document.querySelector('button').addEventListener('click', async () => {
       );
       const climaData = await climaRes.json();
   
-      if (climaData.cod === 200) {
+      // Verificamos si cod es 200 o "200" (puede ser número o string)
+      if (climaData.cod === 200 || climaData.cod === "200") {
         document.querySelector('.clima').innerHTML = `
           <p><strong>Clima:</strong> ${climaData.weather[0].description}</p>
           <p><strong>Temperatura:</strong> ${climaData.main.temp} °C</p>
@@ -40,26 +40,34 @@ document.querySelector('button').addEventListener('click', async () => {
   
         // CAMBIAR EL COLOR DE FONDO SEGÚN EL CLIMA
         const estadoClima = climaData.weather[0].main.toLowerCase();
-        const seccion = document.querySelector('section');
-        seccion.style.background = ''; // Reset
+        const body = document.querySelector('body');
+  
+        body.style.background = ''; // Reset
   
         switch (estadoClima) {
           case 'clear':
-            seccion.style.background = 'linear-gradient(to right, #f9d423, #ff4e50)'; break;
+            body.style.background = 'linear-gradient(to right, #f9d423, #ff4e50)';
+            break;
           case 'clouds':
-            seccion.style.background = 'linear-gradient(to right, #bdc3c7, #2c3e50)'; break;
+            body.style.background = 'linear-gradient(to right, #bdc3c7, #2c3e50)';
+            break;
           case 'rain':
           case 'drizzle':
-            seccion.style.background = 'linear-gradient(to right, #4b79a1, #283e51)'; break;
+            body.style.background = 'linear-gradient(to right, #4b79a1, #283e51)';
+            break;
           case 'thunderstorm':
-            seccion.style.background = 'linear-gradient(to right, #141e30, #243b55)'; break;
+            body.style.background = 'linear-gradient(to right, #141e30, #243b55)';
+            break;
           case 'snow':
-            seccion.style.background = 'linear-gradient(to right, #e6dada,rgb(61, 82, 87))'; break;
+            body.style.background = 'linear-gradient(to right, #e6dada,rgb(61, 82, 87))';
+            break;
           case 'mist':
           case 'fog':
-            seccion.style.background = 'linear-gradient(to right, #757f9a, #d7dde8)'; break;
+            body.style.background = 'linear-gradient(to right, #757f9a, #d7dde8)';
+            break;
           default:
-            seccion.style.background = 'linear-gradient(to right, #7a7a7a, #002029)'; break;
+            body.style.background = 'linear-gradient(to right, #7a7a7a, #002029)';
+            break;
         }
       } else {
         throw new Error('No se pudo obtener el clima');

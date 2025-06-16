@@ -35,7 +35,7 @@ Este es un proyecto web interactivo que permite buscar información de cualquier
 ![Buscador de países](image.png)
 
 ### Cambio de fondo por clima
-![Clima y fondo dinámico]
+
 ![](image1.png)
 ![](image2.png)
 
